@@ -25,10 +25,23 @@ export default function LEGSLEG500() {
 
     return (
         <form onSubmit={form.handleSubmit(handleSubmit)}>
-            <h5> Form </h5>
-            <FormInput id="firstName" form={form} />
-            <FormInput id="lastName" form={form} />
-            <FormInput id="age" form={form} />
+            <h5 className='text-3xl font-bold underline text-primary'> Form </h5>
+            <div className='grid gap-2'>
+                <div className='col-3'>
+                    <FormInput
+                        id="firstName"
+                        label="first name"
+                        form={form}
+                        type="number"
+                    />
+                </div>
+                <div className='col-3'>
+                    <FormInput id="lastName" form={form} className='w-full' />
+                </div>
+                <div className='col-3'>
+                    <FormInput id="age" form={form} className='w-full' />
+                </div>
+            </div>
             <Button
                 label="submit"
                 type='submit'

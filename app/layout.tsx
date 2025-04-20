@@ -18,7 +18,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <link id="theme-css" href={`/themes/lara-light-indigo/theme.css`} rel="stylesheet"></link>
             </head>
             <body>
-                <PrimeReactProvider>
+                <PrimeReactProvider
+                // value={{ unstyled: true, pt: {}}}
+                >
                     <LayoutProvider>{children}</LayoutProvider>
                 </PrimeReactProvider>
             </body>
