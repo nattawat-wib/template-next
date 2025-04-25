@@ -1,9 +1,10 @@
 {
-  "name": "sakai-react",
+  "name": "template-next",
   "version": "10.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 5000",
+    "create": "node template.js",
     "build": "next build",
     "start": "next start",
     "format": "prettier --write \"{app,demo,layout,types}/**/*.{js,ts,tsx,d.ts}\"",
