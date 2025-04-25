@@ -20,9 +20,13 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
 
     return (
         <div className="layout-topbar">
-            <Link href="/" className="layout-topbar-logo">
-                <img src={`/layout/images/logo-${layoutConfig.colorScheme !== 'light' ? 'white' : 'dark'}.svg`} width="47.22px" height={'35px'} alt="logo" />
-                <span>SAKAI</span>
+            <Link href="/" className="layout-topbar-logo gap-2">
+                {/* <img src={`/layout/images/logo-${layoutConfig.colorScheme !== 'light' ? 'white' : 'dark'}.svg`} width="47.22px" height={'35px'} alt="logo" />
+                <span>SAKAI</span> */}
+                <span className='text-lg font-bold text-primary ml-1 mr-4'> Template NextJs </span>
+                <img className="logo-spin" src="/layout/images/trump.png" />
+                <img className="logo-spin" src="/layout/images/xi.png" />
+                <img className="logo-spin" src="/layout/images/kim.png" />
             </Link>
 
             <button ref={menubuttonRef} type="button" className="p-link layout-menu-button layout-topbar-button" onClick={onMenuToggle}>

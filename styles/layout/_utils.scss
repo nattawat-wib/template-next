@@ -25,3 +25,19 @@
         top: 100px;
     }
 }
+
+.logo-spin {
+    animation: spin 3s linear infinite;
+    display: inline-block;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
