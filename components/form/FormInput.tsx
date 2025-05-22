@@ -1,5 +1,5 @@
 import { InputText } from 'primereact/inputtext'
-import { FloatLabel } from 'primereact/floatlabel';;
+import { FloatLabel } from 'primereact/floatlabel';
 import React from 'react';
 import TextWarning from '../utils/TextWarning';
 import { InputTextKeyFilter } from '@/types/primereact/form';
