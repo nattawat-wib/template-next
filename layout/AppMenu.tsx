@@ -12,29 +12,20 @@ const AppMenu = () => {
 
     const model: AppMenuItem[] = [
         {
-            label: 'Template',
+            label: '',
             items: [
                 {
-                    label: 'Form',
-                    icon: 'pi pi-fw pi-home',
-                    to: '/LEGSLEG100',
-                    // items: [
-                    //     {
-                    //         label: 'Login',
-                    //         icon: 'pi pi-fw pi-sign-in',
-                    //         to: '/auth/login'
-                    //     },
-                    //     {
-                    //         label: 'Error',
-                    //         icon: 'pi pi-fw pi-times-circle',
-                    //         to: '/auth/error'
-                    //     },
-                    //     {
-                    //         label: 'Access Denied',
-                    //         icon: 'pi pi-fw pi-lock',
-                    //         to: '/auth/access'
-                    //     }
-                    // ]
+                    label: 'template',
+                    icon: '',
+                    to: '/auth/login',
+                    items: [
+                        {
+                            label: 'form',
+                            icon: 'pi pi-fw pi-id-card',
+
+                            to: '/template/form',
+                        },
+                    ]
                 },
             ]
         },
