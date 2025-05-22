@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "components/form/FromCheckBox.tsx"  ],
   "exclude": [
     "node_modules"
   ]

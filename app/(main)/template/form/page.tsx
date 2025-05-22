@@ -1,0 +1,126 @@
+"use client"
+
+import FormInput from '@/components/form/FormInput'
+import { Button } from 'primereact/button';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { validation, initForm, type InitForm } from '@/model/legal/LEGSLEG100';
+import useForm, { FormProvider } from '@/hook/useForm';
+import { z } from 'zod';
+import FormRadio from '@/components/form/FormRadio';
+import { useState } from 'react';
+import FormDropdown from '@/components/form/FormDropdown';
+import FormCalendar from '@/components/form/FromCalendar';
+import FormCheckbox from '@/components/form/FromCheckBox';
+import FormSwitch from '@/components/form/FormSwitch';
+import FormInputNumber from '@/components/form/FormInputNumber';
+import FormTextarea from '@/components/form/FormTextarea';
+
+export default function Form() {
+
+    // const validate = z.object({
+    //     firstName: z.string().optional().default("string"),
+    // })
+
+    // type FormType = z.infer<typeof validate>
+
+    // const initForm = {
+    //     firstName: "",
+    // }
+
+
+    // const form = useForm<FormType>({
+    //     defaultValues: initForm,
+    //     // resolver: zodResolver(validate)
+    // });
+
+    const form = useForm<InitForm["User"]>({
+        defaultValues: initForm.user,
+        // resolver: zodResolver(validation.user)
+    });
+
+    console.log('initForm.user', initForm.user);
+
+    const onSubmit = (data: InitForm["User"]) => {
+        console.log('data', data);
+    }
+
+    const [selectedCity, setSelectedCity] = useState(null);
+    const cities = [
+        { name: 'New York', code: 'NY' },
+        { name: 'Rome', code: 'RM' },
+        { name: 'London', code: 'LDN' },
+        { name: 'Istanbul', code: 'IST' },
+        { name: 'Paris', code: 'PRS' }
+    ];
+
+    return (
+        // <FormProvider onSubmit={form.handleSubmit(onSubmit)}>
+        <FormProvider {...form}>
+            <h5 className='text-3xl font-bold underline text-primary'> Form </h5>
+            <div className='grid gap-2'>
+                <div className='col-3'>
+                    <FormInput
+                        id="firstName"
+                        label="first name"
+                        form={form}
+                        type="number"
+                    />
+                </div>
+                <div className='col-3'>
+                    <FormInput id="lastName" form={form} className='w-full' />
+                </div>
+                <div className='col-3'>
+                    <FormInput id="age" form={form} className='w-full' />
+                </div>
+                <div className='col-3'>
+                    <div className='flex flex-row tw:justify-between'>
+                        <FormRadio />
+                        <FormRadio />
+                        <FormRadio />
+                    </div>
+                </div>
+                <div>
+                    <FormDropdown
+                        value={selectedCity}
+                        onChange={(e: any) => setSelectedCity(e.value)}
+                        options={cities}
+                        optionLabel="name"
+                        placeholder="Select a City"
+                        className="w-full md:w-14rem"
+                        filter
+                    />
+                </div>
+                <div>
+                    <FormCalendar
+
+                    />
+                </div>
+                <div>
+                    <FormInputNumber
+
+                    />
+                </div>
+                <div>
+                    <FormTextarea
+
+                    />
+                </div>
+                <div>
+                    <FormSwitch
+
+                    />
+                </div>
+                <div>
+                    <FormCheckbox
+                        name="pizza"
+                    />
+                    <label htmlFor="ingredient1" className="ml-2">Cheese</label>
+                </div>
+            </div>
+            <Button
+                label="submit"
+                type='submit'
+            />
+        </FormProvider>
+    )
+}
