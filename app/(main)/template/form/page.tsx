@@ -14,6 +14,8 @@ import FormCheckbox from '@/components/form/FromCheckBox';
 import FormSwitch from '@/components/form/FormSwitch';
 import FormInputNumber from '@/components/form/FormInputNumber';
 import FormTextarea from '@/components/form/FormTextarea';
+import { Card } from 'primereact/card';
+import { Fieldset } from 'primereact/fieldset';
 
 export default function Form() {
 
@@ -57,65 +59,57 @@ export default function Form() {
         // <FormProvider onSubmit={form.handleSubmit(onSubmit)}>
         <FormProvider {...form}>
             <h5 className='text-3xl font-bold underline text-primary'> Form </h5>
-            <div className='grid gap-2'>
-                <div className='col-3'>
+            <div className='grid'>
+                <ComponentCard title="FormInput">
                     <FormInput
                         id="firstName"
                         label="first name"
                         form={form}
                         type="number"
                     />
-                </div>
-                <div className='col-3'>
+                </ComponentCard>
+                <ComponentCard title="FormInput">
                     <FormInput id="lastName" form={form} className='w-full' />
-                </div>
-                <div className='col-3'>
+                </ComponentCard>
+                <ComponentCard title="FormInput">
                     <FormInput id="age" form={form} className='w-full' />
-                </div>
-                <div className='col-3'>
+                </ComponentCard>
+                <ComponentCard title="FormRadio">
                     <div className='flex flex-row tw:justify-between'>
                         <FormRadio />
                         <FormRadio />
                         <FormRadio />
                     </div>
-                </div>
-                <div>
+                </ComponentCard>
+                <ComponentCard title="FormDropdown" >
                     <FormDropdown
                         value={selectedCity}
                         onChange={(e: any) => setSelectedCity(e.value)}
                         options={cities}
                         optionLabel="name"
                         placeholder="Select a City"
-                        className="w-full md:w-14rem"
+                        className="tw:w-full"
                         filter
                     />
-                </div>
-                <div>
-                    <FormCalendar
-
-                    />
-                </div>
-                <div>
-                    <FormInputNumber
-
-                    />
-                </div>
-                <div>
-                    <FormTextarea
-
-                    />
-                </div>
-                <div>
-                    <FormSwitch
-
-                    />
-                </div>
-                <div>
-                    <FormCheckbox
-                        name="pizza"
-                    />
-                    <label htmlFor="ingredient1" className="ml-2">Cheese</label>
-                </div>
+                </ComponentCard>
+                <ComponentCard title="FormCalendar" >
+                    <FormCalendar className="tw:w-full" />
+                </ComponentCard>
+                <ComponentCard title="FormInputNumber" >
+                    <FormInputNumber className="tw:w-full" />
+                </ComponentCard>
+                <ComponentCard title="FormTextarea">
+                    <FormTextarea className="tw:w-full" />
+                </ComponentCard>
+                <ComponentCard title="FormSwitch">
+                    <FormSwitch />
+                </ComponentCard>
+                <ComponentCard title="FormCheckbox">
+                    <>
+                        <FormCheckbox name="pizza" />
+                        <label htmlFor="ingredient1" className="ml-2">Cheese</label>
+                    </>
+                </ComponentCard>
             </div>
             <Button
                 label="submit"
@@ -124,3 +118,15 @@ export default function Form() {
         </FormProvider>
     )
 }
+
+const ComponentCard = (
+    { children, title }: { children: React.ReactElement, title: string }
+): React.ReactElement => (
+    <div className='col-3'>
+        <Fieldset legend={title} >
+            {/* <Card subTitle={title}> */}
+            {children}
+            {/* </Card> */}
+        </Fieldset>
+    </div>
+)
